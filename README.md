@@ -39,7 +39,36 @@ while True:
 
 conn.close()
 server.close()
+
+#echo_client.py
+
+import socket
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+client.connect(('localhost', 5000))
+
+while True:
+    
+    msg = input("Enter message: ")
+
+    client.send(msg.encode())
+
+    data = client.recv(1024).decode()
+
+    print("Server replied:", data)
+
+    if msg.lower() == "exit":
+        break
+        
+client.close()
+
 ## OUPUT
+
+<img width="431" height="155" alt="image" src="https://github.com/user-attachments/assets/0392b840-af0f-429c-a581-c04c57aa4857" />
+
+<img width="440" height="173" alt="image" src="https://github.com/user-attachments/assets/460340d4-3d9b-4aef-a4c4-88917e0803c3" />
+
+
 ## RESULT
 Thus, the python program for creating Echo Client and Echo Server using TCP Sockets Links 
 was successfully created and executed.
